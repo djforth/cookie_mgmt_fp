@@ -3,6 +3,7 @@
 
 var babelify    = require("babelify");
 
+
 module.exports = function(config) {
   config.set({
 
@@ -17,8 +18,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../node_modules/babel-polyfill/browser.js',
-      '../spec/*_spec.js'
+      './node_modules/babel-polyfill/browser.js',
+      {pattern:'./src/cookie_mgmt.js', included: false},
+      './spec/*_spec.js'
     ],
 
 
@@ -30,7 +32,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-       '../spec/*_spec.js': ['browserify']
+      './src/cookie_mgmt.js': ['browserify', 'sourcemap'],
+      './spec/*_spec.js': ['browserify', 'sourcemap']
     },
 
     browserify: {
@@ -39,10 +42,17 @@ module.exports = function(config) {
       extensions: [ "es6.js", ".js"],
       bundleDelay: 1000,
       configure: function(bundle) {
-        console.log("eh?")
-        bundle.transform(babelify, {presets: ["es2015", "react"]})
+        // console.log("coverage", istanbul)
+        bundle.transform(babelify, {presets: ["es2015"]})
       }
     },
+
+    babelPreprocessor: {
+      options: {
+        presets: ['es2015']
+      }
+    },
+
 
 
     // test results reporter to use
@@ -75,10 +85,22 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: false,
 
     // Concurrency level
     // how many browser should be started simultanous
     // concurrency: Infinity
+    plugins: [
+      require("karma-jasmine"),
+      require("karma-firefox-launcher"),
+      require("karma-chrome-launcher"),
+      require("karma-safari-launcher"),
+      require("karma-phantomjs-launcher"),
+      require("karma-browserify"),
+      require("karma-story-reporter"),
+      require("karma-babel-preprocessor"),
+      require("karma-sourcemap-loader"),
+      require("babel-preset-es2015")
+    ]
   })
 }

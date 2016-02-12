@@ -1,8 +1,10 @@
-{
-  // I want to use babel-eslint for parsing!
+module.exports = {
   "parser": "babel-eslint",
-  "extends": "eslint:recommended",
-  "env": {
+  "extends": "google",
+  "plugins": [
+      "react"
+  ],
+   "env": {
     "browser": true,
     "es6": true,
     "node": true
@@ -24,10 +26,11 @@
     "no-alert":[0],
     "camelcase": [0],
     "comma-spacing": [1, {"before": false, "after": true}],
+    "comma-style": [2, "first"],
     "consistent-return": [0],
     "curly": [2, "multi-line"],
     "key-spacing": [0],
-    "quotes": [1],
+    "quotes": [2, "double"],
     "new-cap": [0],
     "no-console":[2],
     "no-undef":[1], //Because of react work around
@@ -37,4 +40,4 @@
     "no-unused-vars": [1],
     "no-use-before-define": [2, "nofunc"]
   }
-}
+};
