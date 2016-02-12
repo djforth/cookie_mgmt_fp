@@ -2,6 +2,8 @@
 
 A small utility for managing cookies in the browser
 
+[![Build Status](https://semaphoreci.com/api/v1/djforth/cookie_mgmt_fp/branches/master/badge.svg)](https://semaphoreci.com/djforth/cookie_mgmt_fp)
+
 ## Install
 
 ```bash
