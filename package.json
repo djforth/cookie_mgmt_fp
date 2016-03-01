@@ -4,7 +4,7 @@
   "description": "Cookies manager",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -x '.js' --source-maps  -d lib",
+    "build": "babel src -x '.js'  -d lib",
     "build:watch": "babel src -x '.js' -w --source-maps  -d lib",
     "lint": "eslint src/**",
     "lint:tests": "eslint spec/**",
