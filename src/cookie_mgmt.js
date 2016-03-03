@@ -1,5 +1,3 @@
-const _          = require("lodash/core");
-
 /**
  * Cookie Management module.
  * @module @djforth/cookie_mgmt_fp
@@ -85,7 +83,7 @@ function CookieWriter(name, path) {
  * @namespace CookieManagment
  */
 function CookieManagment(name, path = "/") {
-  if (_.isUndefined(name)) return null;
+  if (name === undefined || name === null) return null;
 
   let cookie_val = getCookie(name);
 
