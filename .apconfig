@@ -1,0 +1,5 @@
+{
+  "karma": {
+    "input": "./__tests__/manage_cookies.spec.js"
+  }
+}

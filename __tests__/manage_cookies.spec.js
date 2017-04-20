@@ -1,4 +1,5 @@
-  const _          = require("lodash");
+
+const _          = require("lodash");
 var Cookies_mgmt = require("../src/cookie_mgmt");
 
 

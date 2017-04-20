@@ -13,16 +13,16 @@
  * @return {string} returns cookie value
  * @inner
  */
-function getCookie(name) {
+function getCookie(name){
   // no cookie set
-  if (document.cookie.length <= 0) return "";
+  if (document.cookie.length <= 0) return '';
   // Start of required cookie
-  let st = document.cookie.indexOf(name + "=");
+  let st = document.cookie.indexOf(name + '=');
   // If cookie not set
-  if (st === -1) return "";
+  if (st === -1) return '';
   // Gets value
   st  = st + name.length + 1;
-  let end = document.cookie.indexOf(";", st);
+  let end = document.cookie.indexOf(';', st);
   end = (end === -1) ? document.cookie.length : end;
 
   return unescape(document.cookie.substring(st, end));
@@ -30,14 +30,15 @@ function getCookie(name) {
 
 /**
  * Sets expiry
- * Will create expiry based on number of days from todays date.  Will return null if nothing passed
+ * Will create expiry based on number of days from today's date.
+ * Will return null if nothing passed
  *
  * type {function}
  * @param {number} days  - Number of days till cookie will expire.
  * @return {string} returns expire value
  * @inner
  */
-function setExpires(days) {
+function setExpires(days){
   if (!days) return null;
 
   let date = new Date();
@@ -56,11 +57,11 @@ function setExpires(days) {
  * @return {function} returns function to create/write cookie
  * @inner
  */
-function CookieWriter(name, path) {
+function CookieWriter(name, path){
   if (!name) return null;
-  return function(v, exp) {
-    var cookie_str = `${name}=${v};`;
-    if (exp) {
+  return function(v, exp){
+    let cookie_str = `${name}=${v};`;
+    if (exp){
       cookie_str += ` expires=${exp};`;
     }
     cookie_str += ` path=${path}`;
@@ -82,7 +83,7 @@ function CookieWriter(name, path) {
  * @name CookieManagment
  * @namespace CookieManagment
  */
-function CookieManagment(name, path = "/") {
+function CookieManagment(name, path = '/'){
   if (name === undefined || name === null) return null;
 
   let cookie_val = getCookie(name);
@@ -95,20 +96,20 @@ function CookieManagment(name, path = "/") {
     * @param {string} value - value you wish to set the cookie.
     * @param {number} days - The number of Days till the cookie will expire
     * @inner */
-  function createCookie(value, days) {
+  function createCookie(value, days){
     cookie_val = value;
     cookieWriter(value, setExpires(days));
   }
   /** This will destroy the cookie
   * type {function}
   * @inner */
-  function deleteCookie() {
-    cookieWriter("nil", "Thu, 01 Jan 1970 00:00:01 GMT");
+  function deleteCookie(){
+    cookieWriter('nil', 'Thu, 01 Jan 1970 00:00:01 GMT');
   }
   /** Return the value of the cookie
   * @return {string} returns value of cookie
   * @inner */
-  function getValue() {
+  function getValue(){
     return cookie_val;
   }
 
