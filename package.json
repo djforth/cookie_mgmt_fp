@@ -1,10 +1,10 @@
 {
   "name": "@djforth/cookie_mgmt_fp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Cookies manager",
   "main": "index.js",
   "scripts": {
-    "build": "babel src -x '.js'  -d lib",
+    "build": "NODE_ENV=production babel src -x '.js'  -d lib",
     "build:watch": "babel src -x '.js' -w --source-maps  -d lib",
     "lint": "eslint src/** --fix",
     "lint:tests": "eslint __test__/** --fix",
@@ -34,6 +34,9 @@
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-es2016": "^6.22.0",
     "babel-preset-es2017": "^6.22.0",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-preset-babili": "^0.0.12",
+    "babel-preset-env": "^1.4.0",
     "eslint": "^3.18.0",
     "eslint-config-morsedigital": "^1.2.3",
     "eslint-plugin-jsx-a11y": "^4.0.0",
@@ -46,5 +49,7 @@
     "phantomjs-prebuilt": "^2.1.3",
     "webpack": "^2.3.1",
     "webpack-dev-server": "^2.4.2"
+  },
+  "dependencies": {
   }
 }

@@ -1,6 +1,6 @@
 
-const _          = require("lodash");
-var Cookies_mgmt = require("../src/cookie_mgmt");
+import _ from 'lodash';
+import Cookies_mgmt from '../src/cookie_mgmt';
 
 
 function manageSpys(Wired){
