@@ -1,3 +1,2 @@
-var cookies = require('./lib/cookie_mgmt');
-
-module.exports = cookies;
+!function(e,n){"object"==typeof exports&&"undefined"!=typeof module?module.exports=n():"function"==typeof define&&define.amd?define(n):e.CookieManagement=n()}(this,function(){"use strict";function e(e){if(0>=document.cookie.length)return"";var n=document.cookie.indexOf(e+"=");if(-1===n)return"";n=n+e.length+1;var t=document.cookie.indexOf(";",n);return t=-1===t?document.cookie.length:t,unescape(document.cookie.substring(n,t))}function n(e){if(!e)return null;var n=new Date;return n.setTime(n.getTime()+24*e*60*60*1e3),n.toGMTString()}function t(e,n){return e?function(t,o){var i=e+"="+t+";";return o&&(i+=" expires="+o+";"),i+=" path="+n,document.cookie=i,i}:null}return function(o){var i=1<arguments.length&&void 0!==arguments[1]?arguments[1]:"/";if(void 0===o||null===o)return null;var u=e(o),r=t(o,i);return{createCookie:function(e,t){u=e,r(e,n(t))},deleteCookie:function(){r("nil","Thu, 01 Jan 1970 00:00:01 GMT")},getValue:function(){return u}}}});
+//# sourceMappingURL=index.js.map

@@ -11,7 +11,7 @@
       ]
       , "presets": [
         ["env", {
-          modules: 'umd',
+          modules: false,
           "targets": {
               'node': 4,
               "browsers": [
@@ -21,7 +21,7 @@
               ]
             }
         }]
-        , 'babili'
+        , 'minify'
       ]
     },
     "test": {
@@ -36,6 +36,19 @@
           }
         ],
         "rewire"
+      ]
+      , "presets": [
+        ["env", {
+          modules: 'umd',
+          "targets": {
+              'node': 4,
+              "browsers": [
+                "last 2 versions",
+                "chrome >= 55",
+                "IE >= 11"
+              ]
+            }
+        }]
       ]
     }
   }
